@@ -34,13 +34,14 @@ private:
 
   shared_ptr<SFAsset>		 background;
   shared_ptr<SFWindow>       sf_window;
-
   shared_ptr<SFAsset>        player;
   shared_ptr<SFBoundingBox>  app_box;
+
+  list<shared_ptr<SFAsset> > FriendlySpaceships;
   list<shared_ptr<SFAsset> > projectiles;
   list<shared_ptr<SFAsset> > aliens;
-  list<shared_ptr<SFAsset> > coins;
 
   int fire;
+  //int frames;
 };
 #endif

@@ -1,4 +1,5 @@
 #include "SFApp.h"
+#include "SFBoundingBox.h"
 
 SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
   int canvas_w, canvas_h;
@@ -16,19 +17,40 @@ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_w
   auto player_pos = Point2(canvas_w/2, 22);
   player->SetPosition(player_pos);
 
-  const int number_of_aliens = 10;
+  const int number_of_aliens = 7;
   for(int i=0; i<number_of_aliens; i++) {
     // place an alien at width/number_of_aliens * i
     auto alien = make_shared<SFAsset>(SFASSET_ALIEN, sf_window);
-    auto pos   = Point2((canvas_w/number_of_aliens) * i, 200.0f);
+    auto pos   = Point2((290 + (50 * i)), (50.0f * i)+200);
+    alien->SetPosition(pos);
+    aliens.push_back(alien);
+  }
+  for(int i=0; i<number_of_aliens; i++) {
+    // place an alien at width/number_of_aliens * i
+    auto alien = make_shared<SFAsset>(SFASSET_ALIEN, sf_window);
+    auto pos   = Point2((340 - (50 * i)), (50.0f * i)+200);
+    alien->SetPosition(pos);
+    aliens.push_back(alien);
+  }
+  for(int i=0; i<number_of_aliens; i++) {
+    // place an alien at width/number_of_aliens * i
+    auto alien = make_shared<SFAsset>(SFASSET_ALIEN, sf_window);
+    auto pos   = Point2((290 + (50 * i)), (50.0f * i)+400);
+    alien->SetPosition(pos);
+    aliens.push_back(alien);
+  }
+  for(int i=0; i<number_of_aliens; i++) {
+    // place an alien at width/number_of_aliens * i
+    auto alien = make_shared<SFAsset>(SFASSET_ALIEN, sf_window);
+    auto pos   = Point2((340 - (50 * i)), (50.0f * i)+400);
     alien->SetPosition(pos);
     aliens.push_back(alien);
   }
 
-  auto coin = make_shared<SFAsset>(SFASSET_COIN, sf_window);
-  auto pos  = Point2((canvas_w/4), 100);
-  coin->SetPosition(pos);
-  coins.push_back(coin);
+  auto FriendlySpaceship = make_shared<SFAsset>(SFASSET_FRIENDLYSPACESHIP, sf_window);
+  auto pos  = Point2((canvas_w/2), (canvas_h- 20));
+  FriendlySpaceship->SetPosition(pos);
+  FriendlySpaceships.push_back(FriendlySpaceship);
 }
 
 SFApp::~SFApp() {
@@ -40,6 +62,7 @@ SFApp::~SFApp() {
  */
 void SFApp::OnEvent(SFEvent& event) {
   SFEVENT the_event = event.GetCode();
+
   switch (the_event) {
   case SFEVENT_QUIT:
     is_running = false;
@@ -79,14 +102,17 @@ void SFApp::OnExecute() {
 }
 
 void SFApp::OnUpdateWorld() {
-  // Update projectile positions
+  // Update projectile positions depending on sprite direction
   for(auto p: projectiles) {
-    p->GoNorth();
+		    p->GoNorth();
   }
+
   //make above the same for when enemies shoot
 
-  for(auto c: coins) {
-    c->GoNorth();
+  for(auto friendlyShip: FriendlySpaceships) {//this is for the end game sequence
+    if(friendlyShip->CollidesWith(player)){
+    	cout << "You've Won!";
+    }
   }
 
   // Update enemy positions
@@ -95,11 +121,15 @@ void SFApp::OnUpdateWorld() {
   }
 
   // Detect collisions
-  for(auto p : projectiles) {
-    for(auto a : aliens) {
-      if(p->CollidesWith(a)) {
-        p->HandleCollision();
-        a->HandleCollision();
+  for(auto projectile : projectiles) {
+    for(auto alien : aliens) {
+      if(projectile -> CollidesWith(alien)) {
+    	  projectile -> HandleCollision();
+    	  alien -> HandleCollision();
+      }
+      if(player -> CollidesWith(alien)){
+    	  player -> HandleCollision();
+    	  alien -> HandleCollision();
       }
     }
   }
@@ -130,7 +160,7 @@ void SFApp::OnRender() {
     if(a->IsAlive()) {a->OnRender();}
   }
 
-  for(auto c: coins) {
+  for(auto c: FriendlySpaceships) {
     c->OnRender();
   }
 

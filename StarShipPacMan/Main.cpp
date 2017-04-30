@@ -28,7 +28,7 @@ Uint32 PushUpdateEvent(Uint32 interval, void *param) {
 
 SFError InitGraphics() {
   Uint32 width = 640;
-  Uint32 height = 1080;
+  Uint32 height = 800;
 
   // Initialise SDL - when using C/C++ it's common to have to
   // initialise libraries by calling a function within them.
