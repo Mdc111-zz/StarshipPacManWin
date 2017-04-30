@@ -1,0 +1,6 @@
+19:55:01 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
+
+19:55:01 Build Finished (took 378ms)
+
