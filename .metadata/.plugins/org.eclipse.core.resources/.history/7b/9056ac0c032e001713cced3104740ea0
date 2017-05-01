@@ -124,6 +124,9 @@ void SFApp::OnUpdateWorld() {
     for(auto alien : aliens) {
       if(projectile -> CollidesWith(alien)) {
     	  projectile -> HandleCollision();
+    	  if (projectile -> IsAlive()){
+    		  projectiles.clear();
+    	  }
     	  alien -> HandleCollision();
       }
       if(player -> CollidesWith(alien)){
@@ -142,15 +145,6 @@ void SFApp::OnUpdateWorld() {
   }
   aliens.clear();
   aliens = list<shared_ptr<SFAsset>>(tmp);
-
-  list<shared_ptr<SFAsset>> tmp2;
-  for(auto p : projectiles) {
-    if(p->IsAlive()) {
-    	tmp2.push_back(p);
-    }
-  }
-  projectiles.clear();
-  projectiles = list<shared_ptr<SFAsset>>(tmp2);
 }
 
 void SFApp::OnRender() {

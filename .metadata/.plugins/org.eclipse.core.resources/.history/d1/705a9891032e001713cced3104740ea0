@@ -143,14 +143,13 @@ void SFApp::OnUpdateWorld() {
   aliens.clear();
   aliens = list<shared_ptr<SFAsset>>(tmp);
 
-  list<shared_ptr<SFAsset>> tmp2;
-  for(auto p : projectiles) {
+  /*for(auto p : projectiles) {
     if(p->IsAlive()) {
-    	tmp2.push_back(p);
+      tmp.push_back(p);
     }
   }
   projectiles.clear();
-  projectiles = list<shared_ptr<SFAsset>>(tmp2);
+  projectiles = list<shared_ptr<SFAsset>>(tmp);*/
 }
 
 void SFApp::OnRender() {

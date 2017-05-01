@@ -104,6 +104,7 @@ void SFApp::OnExecute() {
 void SFApp::OnUpdateWorld() {
   // Update projectile positions depending on sprite direction
   for(auto p: projectiles) {
+	  //if(p -> IsAlive())
 		  p->GoNorth();
   }
 

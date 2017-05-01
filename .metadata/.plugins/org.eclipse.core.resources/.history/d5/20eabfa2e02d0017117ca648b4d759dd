@@ -17,32 +17,27 @@ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_w
   auto player_pos = Point2(canvas_w/2, 22);
   player->SetPosition(player_pos);
 
-  const int number_of_aliens = 7;
-  for(int i=0; i<number_of_aliens; i++) {
+  const int number_of_aliens_one = 4;
+  for(int i=0; i<number_of_aliens_one; i++) {
     // place an alien at width/number_of_aliens * i
     auto alien = make_shared<SFAsset>(SFASSET_ALIEN, sf_window);
-    auto pos   = Point2((290 + (50 * i)), (50.0f * i)+200);
+    auto pos   = Point2(((canvas_w/number_of_aliens_one) * i / 2) + 20, (50.0f * i)+20);
     alien->SetPosition(pos);
     aliens.push_back(alien);
   }
-  for(int i=0; i<number_of_aliens; i++) {
+  const int number_of_aliens_two = 4;
+  for(int i=0; i<number_of_aliens_two; i++) {
     // place an alien at width/number_of_aliens * i
     auto alien = make_shared<SFAsset>(SFASSET_ALIEN, sf_window);
-    auto pos   = Point2((340 - (50 * i)), (50.0f * i)+200);
+    auto pos   = Point2(((canvas_w/number_of_aliens_two) * i / 2) + 20, (50.0f * i)+150);
     alien->SetPosition(pos);
     aliens.push_back(alien);
   }
-  for(int i=0; i<number_of_aliens; i++) {
+  const int number_of_aliens_three = 4;
+  for(int i=0; i<number_of_aliens_three; i++) {
     // place an alien at width/number_of_aliens * i
     auto alien = make_shared<SFAsset>(SFASSET_ALIEN, sf_window);
-    auto pos   = Point2((290 + (50 * i)), (50.0f * i)+400);
-    alien->SetPosition(pos);
-    aliens.push_back(alien);
-  }
-  for(int i=0; i<number_of_aliens; i++) {
-    // place an alien at width/number_of_aliens * i
-    auto alien = make_shared<SFAsset>(SFASSET_ALIEN, sf_window);
-    auto pos   = Point2((340 - (50 * i)), (50.0f * i)+400);
+    auto pos   = Point2(((canvas_w/number_of_aliens_three) * i / 2) + 20, (50.0f * i)+150);
     alien->SetPosition(pos);
     aliens.push_back(alien);
   }
@@ -104,9 +99,14 @@ void SFApp::OnExecute() {
 void SFApp::OnUpdateWorld() {
   // Update projectile positions depending on sprite direction
   for(auto p: projectiles) {
-		  p->GoNorth();
+	  //if(!p -> CollidesWith(aliens)){
+		    p->GoNorth();
+	  //}else{
+		 // p -> HandleCollision();
+	  //}
   }
 
+  //make above the same for when enemies shoot
 
   for(auto friendlyShip: FriendlySpaceships) {//this is for the end game sequence
     if(friendlyShip->CollidesWith(player)){
@@ -142,15 +142,6 @@ void SFApp::OnUpdateWorld() {
   }
   aliens.clear();
   aliens = list<shared_ptr<SFAsset>>(tmp);
-
-  list<shared_ptr<SFAsset>> tmp2;
-  for(auto p : projectiles) {
-    if(p->IsAlive()) {
-    	tmp2.push_back(p);
-    }
-  }
-  projectiles.clear();
-  projectiles = list<shared_ptr<SFAsset>>(tmp2);
 }
 
 void SFApp::OnRender() {
