@@ -8022,3 +8022,1964 @@ In file included from ..\SFBoundingBox.h:10:0,
                       ^
 g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
 Info: Nothing to build for StarShipPacMan
+20:11:38 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:46:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:32:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp:56:3: error: 'FriendlySpaceship' was not declared in this scope
+   FriendlySpaceship = make_shared<SFAsset>(SFASSET_FRIENDLYSPACESHIP, sf_window);
+   ^
+..\SFApp.cpp:59:22: error: 'class std::shared_ptr<SFAsset>' has no member named 'push_back'
+   FriendlySpaceships.push_back(FriendlySpaceship);
+                      ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:72:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:72:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:72:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+..\SFApp.cpp: In member function 'void SFApp::OnUpdateWorld()':
+..\SFApp.cpp:113:37: error: 'FriendlySpaceShips' was not declared in this scope
+    if(projectile ->GetPosition() == FriendlySpaceShips->GetPosition()){
+                                     ^
+..\SFApp.cpp:120:26: error: no matching function for call to 'begin(std::shared_ptr<SFAsset>&)'
+   for(auto friendlyShip: FriendlySpaceships) {//this is for the end game sequence
+                          ^
+In file included from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\string:51:0,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\stdexcept:39,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\array:38,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\tuple:39,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\functional:55,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\memory:79,
+                 from ..\SFApp.h:4,
+                 from ..\SFApp.cpp:1:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:87:5: note: candidate: template<class _Tp, unsigned int _Nm> _Tp* std::begin(_Tp (&)[_Nm])
+     begin(_Tp (&__arr)[_Nm])
+     ^
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:87:5: note:   template argument deduction/substitution failed:
+..\SFApp.cpp:120:26: note:   mismatched types '_Tp [_Nm]' and 'std::shared_ptr<SFAsset>'
+   for(auto friendlyShip: FriendlySpaceships) {//this is for the end game sequence
+                          ^
+In file included from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\string:51:0,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\stdexcept:39,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\array:38,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\tuple:39,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\functional:55,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\memory:79,
+                 from ..\SFApp.h:4,
+                 from ..\SFApp.cpp:1:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:58:5: note: candidate: template<class _Container> decltype (__cont.begin()) std::begin(const _Container&)
+     begin(const _Container& __cont) -> decltype(__cont.begin())
+     ^
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:58:5: note:   template argument deduction/substitution failed:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h: In substitution of 'template<class _Container> decltype (__cont.begin()) std::begin(const _Container&) [with _Container = std::shared_ptr<SFAsset>]':
+..\SFApp.cpp:120:26:   required from here
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:58:5: error: 'const class std::shared_ptr<SFAsset>' has no member named 'begin'
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:48:5: note: candidate: template<class _Container> decltype (__cont.begin()) std::begin(_Container&)
+     begin(_Container& __cont) -> decltype(__cont.begin())
+     ^
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:48:5: note:   template argument deduction/substitution failed:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h: In substitution of 'template<class _Container> decltype (__cont.begin()) std::begin(_Container&) [with _Container = std::shared_ptr<SFAsset>]':
+..\SFApp.cpp:120:26:   required from here
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:48:5: error: 'class std::shared_ptr<SFAsset>' has no member named 'begin'
+In file included from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\utility:75:0,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\tuple:38,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\functional:55,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\memory:79,
+                 from ..\SFApp.h:4,
+                 from ..\SFApp.cpp:1:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\initializer_list:89:5: note: candidate: template<class _Tp> constexpr const _Tp* std::begin(std::initializer_list<_Tp>)
+     begin(initializer_list<_Tp> __ils) noexcept
+     ^
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\initializer_list:89:5: note:   template argument deduction/substitution failed:
+..\SFApp.cpp:120:26: note:   'std::shared_ptr<SFAsset>' is not derived from 'std::initializer_list<_Tp>'
+   for(auto friendlyShip: FriendlySpaceships) {//this is for the end game sequence
+                          ^
+..\SFApp.cpp:120:26: error: no matching function for call to 'end(std::shared_ptr<SFAsset>&)'
+In file included from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\string:51:0,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\stdexcept:39,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\array:38,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\tuple:39,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\functional:55,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\memory:79,
+                 from ..\SFApp.h:4,
+                 from ..\SFApp.cpp:1:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:97:5: note: candidate: template<class _Tp, unsigned int _Nm> _Tp* std::end(_Tp (&)[_Nm])
+     end(_Tp (&__arr)[_Nm])
+     ^
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:97:5: note:   template argument deduction/substitution failed:
+..\SFApp.cpp:120:26: note:   mismatched types '_Tp [_Nm]' and 'std::shared_ptr<SFAsset>'
+   for(auto friendlyShip: FriendlySpaceships) {//this is for the end game sequence
+                          ^
+In file included from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\string:51:0,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\stdexcept:39,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\array:38,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\tuple:39,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\functional:55,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\memory:79,
+                 from ..\SFApp.h:4,
+                 from ..\SFApp.cpp:1:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:78:5: note: candidate: template<class _Container> decltype (__cont.end()) std::end(const _Container&)
+     end(const _Container& __cont) -> decltype(__cont.end())
+     ^
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:78:5: note:   template argument deduction/substitution failed:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h: In substitution of 'template<class _Container> decltype (__cont.end()) std::end(const _Container&) [with _Container = std::shared_ptr<SFAsset>]':
+..\SFApp.cpp:120:26:   required from here
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:78:5: error: 'const class std::shared_ptr<SFAsset>' has no member named 'end'
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:68:5: note: candidate: template<class _Container> decltype (__cont.end()) std::end(_Container&)
+     end(_Container& __cont) -> decltype(__cont.end())
+     ^
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:68:5: note:   template argument deduction/substitution failed:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h: In substitution of 'template<class _Container> decltype (__cont.end()) std::end(_Container&) [with _Container = std::shared_ptr<SFAsset>]':
+..\SFApp.cpp:120:26:   required from here
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:68:5: error: 'class std::shared_ptr<SFAsset>' has no member named 'end'
+In file included from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\utility:75:0,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\tuple:38,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\functional:55,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\memory:79,
+                 from ..\SFApp.h:4,
+                 from ..\SFApp.cpp:1:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\initializer_list:99:5: note: candidate: template<class _Tp> constexpr const _Tp* std::end(std::initializer_list<_Tp>)
+     end(initializer_list<_Tp> __ils) noexcept
+     ^
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\initializer_list:99:5: note:   template argument deduction/substitution failed:
+..\SFApp.cpp:120:26: note:   'std::shared_ptr<SFAsset>' is not derived from 'std::initializer_list<_Tp>'
+   for(auto friendlyShip: FriendlySpaceships) {//this is for the end game sequence
+                          ^
+..\SFApp.cpp: In member function 'void SFApp::OnRender()':
+..\SFApp.cpp:182:15: error: no matching function for call to 'begin(std::shared_ptr<SFAsset>&)'
+   for(auto c: FriendlySpaceships) {
+               ^
+In file included from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\string:51:0,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\stdexcept:39,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\array:38,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\tuple:39,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\functional:55,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\memory:79,
+                 from ..\SFApp.h:4,
+                 from ..\SFApp.cpp:1:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:87:5: note: candidate: template<class _Tp, unsigned int _Nm> _Tp* std::begin(_Tp (&)[_Nm])
+     begin(_Tp (&__arr)[_Nm])
+     ^
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:87:5: note:   template argument deduction/substitution failed:
+..\SFApp.cpp:182:15: note:   mismatched types '_Tp [_Nm]' and 'std::shared_ptr<SFAsset>'
+   for(auto c: FriendlySpaceships) {
+               ^
+In file included from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\string:51:0,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\stdexcept:39,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\array:38,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\tuple:39,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\functional:55,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\memory:79,
+                 from ..\SFApp.h:4,
+                 from ..\SFApp.cpp:1:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:58:5: note: candidate: template<class _Container> decltype (__cont.begin()) std::begin(const _Container&)
+     begin(const _Container& __cont) -> decltype(__cont.begin())
+     ^
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:58:5: note:   template argument deduction/substitution failed:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h: In substitution of 'template<class _Container> decltype (__cont.begin()) std::begin(const _Container&) [with _Container = std::shared_ptr<SFAsset>]':
+..\SFApp.cpp:182:15:   required from here
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:58:5: error: 'const class std::shared_ptr<SFAsset>' has no member named 'begin'
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:48:5: note: candidate: template<class _Container> decltype (__cont.begin()) std::begin(_Container&)
+     begin(_Container& __cont) -> decltype(__cont.begin())
+     ^
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:48:5: note:   template argument deduction/substitution failed:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h: In substitution of 'template<class _Container> decltype (__cont.begin()) std::begin(_Container&) [with _Container = std::shared_ptr<SFAsset>]':
+..\SFApp.cpp:182:15:   required from here
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:48:5: error: 'class std::shared_ptr<SFAsset>' has no member named 'begin'
+In file included from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\utility:75:0,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\tuple:38,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\functional:55,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\memory:79,
+                 from ..\SFApp.h:4,
+                 from ..\SFApp.cpp:1:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\initializer_list:89:5: note: candidate: template<class _Tp> constexpr const _Tp* std::begin(std::initializer_list<_Tp>)
+     begin(initializer_list<_Tp> __ils) noexcept
+     ^
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\initializer_list:89:5: note:   template argument deduction/substitution failed:
+..\SFApp.cpp:182:15: note:   'std::shared_ptr<SFAsset>' is not derived from 'std::initializer_list<_Tp>'
+   for(auto c: FriendlySpaceships) {
+               ^
+..\SFApp.cpp:182:15: error: no matching function for call to 'end(std::shared_ptr<SFAsset>&)'
+In file included from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\string:51:0,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\stdexcept:39,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\array:38,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\tuple:39,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\functional:55,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\memory:79,
+                 from ..\SFApp.h:4,
+                 from ..\SFApp.cpp:1:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:97:5: note: candidate: template<class _Tp, unsigned int _Nm> _Tp* std::end(_Tp (&)[_Nm])
+     end(_Tp (&__arr)[_Nm])
+     ^
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:97:5: note:   template argument deduction/substitution failed:
+..\SFApp.cpp:182:15: note:   mismatched types '_Tp [_Nm]' and 'std::shared_ptr<SFAsset>'
+   for(auto c: FriendlySpaceships) {
+               ^
+In file included from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\string:51:0,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\stdexcept:39,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\array:38,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\tuple:39,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\functional:55,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\memory:79,
+                 from ..\SFApp.h:4,
+                 from ..\SFApp.cpp:1:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:78:5: note: candidate: template<class _Container> decltype (__cont.end()) std::end(const _Container&)
+     end(const _Container& __cont) -> decltype(__cont.end())
+     ^
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:78:5: note:   template argument deduction/substitution failed:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h: In substitution of 'template<class _Container> decltype (__cont.end()) std::end(const _Container&) [with _Container = std::shared_ptr<SFAsset>]':
+..\SFApp.cpp:182:15:   required from here
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:78:5: error: 'const class std::shared_ptr<SFAsset>' has no member named 'end'
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:68:5: note: candidate: template<class _Container> decltype (__cont.end()) std::end(_Container&)
+     end(_Container& __cont) -> decltype(__cont.end())
+     ^
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:68:5: note:   template argument deduction/substitution failed:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h: In substitution of 'template<class _Container> decltype (__cont.end()) std::end(_Container&) [with _Container = std::shared_ptr<SFAsset>]':
+..\SFApp.cpp:182:15:   required from here
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\range_access.h:68:5: error: 'class std::shared_ptr<SFAsset>' has no member named 'end'
+In file included from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\utility:75:0,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\tuple:38,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\functional:55,
+                 from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\memory:79,
+                 from ..\SFApp.h:4,
+                 from ..\SFApp.cpp:1:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\initializer_list:99:5: note: candidate: template<class _Tp> constexpr const _Tp* std::end(std::initializer_list<_Tp>)
+     end(initializer_list<_Tp> __ils) noexcept
+     ^
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\initializer_list:99:5: note:   template argument deduction/substitution failed:
+..\SFApp.cpp:182:15: note:   'std::shared_ptr<SFAsset>' is not derived from 'std::initializer_list<_Tp>'
+   for(auto c: FriendlySpaceships) {
+               ^
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+20:12:45 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:46:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:32:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:71:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:71:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:71:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+..\SFApp.cpp: In member function 'void SFApp::OnUpdateWorld()':
+..\SFApp.cpp:112:37: error: 'FriendlySpaceShips' was not declared in this scope
+    if(projectile ->GetPosition() == FriendlySpaceShips->GetPosition()){
+                                     ^
+..\SFApp.cpp:119:26: error: 'FriendlySpaceships' was not declared in this scope
+   for(auto friendlyShip: FriendlySpaceships) {//this is for the end game sequence
+                          ^
+..\SFApp.cpp: In member function 'void SFApp::OnRender()':
+..\SFApp.cpp:181:15: error: 'FriendlySpaceships' was not declared in this scope
+   for(auto c: FriendlySpaceships) {
+               ^
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+20:13:38 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o Main.o "..\\Main.cpp" 
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\Main.cpp:7:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:46:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:32:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:71:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:71:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:71:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+..\SFApp.cpp: In member function 'void SFApp::OnUpdateWorld()':
+..\SFApp.cpp:112:37: error: 'FriendlySpaceShip' was not declared in this scope
+    if(projectile ->GetPosition() == FriendlySpaceShip->GetPosition()){
+                                     ^
+..\SFApp.cpp: In member function 'void SFApp::OnRender()':
+..\SFApp.cpp:180:15: error: 'FriendlySpaceships' was not declared in this scope
+   for(auto c: FriendlySpaceships) {
+               ^
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+20:14:00 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:46:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:32:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:71:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:71:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:71:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+..\SFApp.cpp: In member function 'void SFApp::OnUpdateWorld()':
+..\SFApp.cpp:112:37: error: 'FriendlySpaceShip' was not declared in this scope
+    if(projectile ->GetPosition() == FriendlySpaceShip->GetPosition()){
+                                     ^
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+20:14:09 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:46:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:32:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:71:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:71:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:71:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
+21:01:11 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:46:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:32:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:71:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:71:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:71:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
+21:05:32 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o Main.o "..\\Main.cpp" 
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\Main.cpp:7:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:47:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:32:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
+21:05:55 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:47:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:32:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
+21:08:04 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:47:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:32:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
+21:09:46 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:47:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:32:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
+21:10:47 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:47:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:32:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
+Info: Nothing to build for StarShipPacMan
+21:14:00 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:47:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:32:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o Main.o "..\\Main.cpp" 
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\Main.cpp:7:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
+21:20:02 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:47:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:32:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
+21:30:52 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:48:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:32:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o Main.o "..\\Main.cpp" 
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\Main.cpp:7:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
+c:/mingw/bin/../lib/gcc/mingw32/5.3.0/../../../../mingw32/bin/ld.exe: cannot open output file StarShipPacMan.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+21:33:15 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o Main.o "..\\Main.cpp" 
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\Main.cpp:7:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
+c:/mingw/bin/../lib/gcc/mingw32/5.3.0/../../../../mingw32/bin/ld.exe: cannot open output file StarShipPacMan.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+21:43:39 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o Main.o "..\\Main.cpp" 
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\Main.cpp:7:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFAsset.o "..\\SFAsset.cpp" 
+..\SFAsset.cpp: In constructor 'SFAsset::SFAsset(SFASSETTYPE, std::shared_ptr<SFWindow>)':
+..\SFAsset.cpp:8:10: warning: enumeration value 'SFASSET_ALIENPROJECTILE' not handled in switch [-Wswitch]
+   switch (type) {
+          ^
+..\SFAsset.cpp:8:10: warning: enumeration value 'SFASSET_DEAD' not handled in switch [-Wswitch]
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFAsset.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
+c:/mingw/bin/../lib/gcc/mingw32/5.3.0/../../../../mingw32/bin/ld.exe: cannot open output file StarShipPacMan.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+21:46:48 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o Main.o "..\\Main.cpp" 
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\Main.cpp:7:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp:60:12: error: no match for 'operator=' (operand types are 'std::__cxx11::list<std::shared_ptr<SFAsset> >' and 'std::shared_ptr<SFAsset>')
+   bigAlien = make_shared<SFAsset>(SFASSET_BIGALIEN, sf_window);
+            ^
+In file included from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\list:64:0,
+                 from ..\SFApp.h:7,
+                 from ..\SFApp.cpp:1:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\list.tcc:228:5: note: candidate: std::__cxx11::list<_Tp, _Alloc>& std::__cxx11::list<_Tp, _Alloc>::operator=(const std::__cxx11::list<_Tp, _Alloc>&) [with _Tp = std::shared_ptr<SFAsset>; _Alloc = std::allocator<std::shared_ptr<SFAsset> >]
+     list<_Tp, _Alloc>::
+     ^
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\list.tcc:228:5: note:   no known conversion for argument 1 from 'std::shared_ptr<SFAsset>' to 'const std::__cxx11::list<std::shared_ptr<SFAsset> >&'
+In file included from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\list:63:0,
+                 from ..\SFApp.h:7,
+                 from ..\SFApp.cpp:1:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\stl_list.h:740:7: note: candidate: std::__cxx11::list<_Tp, _Alloc>& std::__cxx11::list<_Tp, _Alloc>::operator=(std::__cxx11::list<_Tp, _Alloc>&&) [with _Tp = std::shared_ptr<SFAsset>; _Alloc = std::allocator<std::shared_ptr<SFAsset> >]
+       operator=(list&& __x)
+       ^
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\stl_list.h:740:7: note:   no known conversion for argument 1 from 'std::shared_ptr<SFAsset>' to 'std::__cxx11::list<std::shared_ptr<SFAsset> >&&'
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\stl_list.h:757:7: note: candidate: std::__cxx11::list<_Tp, _Alloc>& std::__cxx11::list<_Tp, _Alloc>::operator=(std::initializer_list<_Tp>) [with _Tp = std::shared_ptr<SFAsset>; _Alloc = std::allocator<std::shared_ptr<SFAsset> >]
+       operator=(initializer_list<value_type> __l)
+       ^
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\stl_list.h:757:7: note:   no known conversion for argument 1 from 'std::shared_ptr<SFAsset>' to 'std::initializer_list<std::shared_ptr<SFAsset> >'
+..\SFApp.cpp:62:11: error: base operand of '->' has non-pointer type 'std::__cxx11::list<std::shared_ptr<SFAsset> >'
+   bigAlien->SetPosition(bigAlien_pos);
+           ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+..\SFApp.cpp: In member function 'void SFApp::OnUpdateWorld()':
+..\SFApp.cpp:122:42: error: no matching function for call to 'SFAsset::CollidesWith(std::__cxx11::list<std::shared_ptr<SFAsset> >&)'
+    if(projectile -> CollidesWith(bigAlien)){
+                                          ^
+In file included from ..\SFApp.h:14:0,
+                 from ..\SFApp.cpp:1:
+..\SFAsset.h:45:37: note: candidate: virtual bool SFAsset::CollidesWith(std::shared_ptr<SFAsset>)
+   virtual bool                      CollidesWith(shared_ptr<SFAsset>);
+                                     ^
+..\SFAsset.h:45:37: note:   no known conversion for argument 1 from 'std::__cxx11::list<std::shared_ptr<SFAsset> >' to 'std::shared_ptr<SFAsset>'
+..\SFApp.cpp:128:13: error: base operand of '->' has non-pointer type 'std::__cxx11::list<std::shared_ptr<SFAsset> >'
+    bigAlien -> HandleCollision();
+             ^
+..\SFApp.cpp: In member function 'void SFApp::OnRender()':
+..\SFApp.cpp:177:11: error: base operand of '->' has non-pointer type 'std::__cxx11::list<std::shared_ptr<SFAsset> >'
+   bigAlien->OnRender();
+           ^
+..\SFApp.cpp:187:22: error: 'bigAliens' was not declared in this scope
+   for(auto bigalien: bigAliens) {
+                      ^
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+21:50:30 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp:60:12: error: no match for 'operator=' (operand types are 'std::__cxx11::list<std::shared_ptr<SFAsset> >' and 'std::shared_ptr<SFAsset>')
+   bigAlien = make_shared<SFAsset>(SFASSET_BIGALIEN, sf_window);
+            ^
+In file included from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\list:64:0,
+                 from ..\SFApp.h:7,
+                 from ..\SFApp.cpp:1:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\list.tcc:228:5: note: candidate: std::__cxx11::list<_Tp, _Alloc>& std::__cxx11::list<_Tp, _Alloc>::operator=(const std::__cxx11::list<_Tp, _Alloc>&) [with _Tp = std::shared_ptr<SFAsset>; _Alloc = std::allocator<std::shared_ptr<SFAsset> >]
+     list<_Tp, _Alloc>::
+     ^
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\list.tcc:228:5: note:   no known conversion for argument 1 from 'std::shared_ptr<SFAsset>' to 'const std::__cxx11::list<std::shared_ptr<SFAsset> >&'
+In file included from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\list:63:0,
+                 from ..\SFApp.h:7,
+                 from ..\SFApp.cpp:1:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\stl_list.h:740:7: note: candidate: std::__cxx11::list<_Tp, _Alloc>& std::__cxx11::list<_Tp, _Alloc>::operator=(std::__cxx11::list<_Tp, _Alloc>&&) [with _Tp = std::shared_ptr<SFAsset>; _Alloc = std::allocator<std::shared_ptr<SFAsset> >]
+       operator=(list&& __x)
+       ^
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\stl_list.h:740:7: note:   no known conversion for argument 1 from 'std::shared_ptr<SFAsset>' to 'std::__cxx11::list<std::shared_ptr<SFAsset> >&&'
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\stl_list.h:757:7: note: candidate: std::__cxx11::list<_Tp, _Alloc>& std::__cxx11::list<_Tp, _Alloc>::operator=(std::initializer_list<_Tp>) [with _Tp = std::shared_ptr<SFAsset>; _Alloc = std::allocator<std::shared_ptr<SFAsset> >]
+       operator=(initializer_list<value_type> __l)
+       ^
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\bits\stl_list.h:757:7: note:   no known conversion for argument 1 from 'std::shared_ptr<SFAsset>' to 'std::initializer_list<std::shared_ptr<SFAsset> >'
+..\SFApp.cpp:62:11: error: base operand of '->' has non-pointer type 'std::__cxx11::list<std::shared_ptr<SFAsset> >'
+   bigAlien->SetPosition(bigAlien_pos);
+           ^
+..\SFApp.cpp:68:5: error: 'alien' was not declared in this scope
+     alien->SetPosition(bigAlienpos);
+     ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:83:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:83:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:83:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+..\SFApp.cpp: In member function 'void SFApp::OnUpdateWorld()':
+..\SFApp.cpp:130:42: error: no matching function for call to 'SFAsset::CollidesWith(std::__cxx11::list<std::shared_ptr<SFAsset> >&)'
+    if(projectile -> CollidesWith(bigAlien)){
+                                          ^
+In file included from ..\SFApp.h:14:0,
+                 from ..\SFApp.cpp:1:
+..\SFAsset.h:45:37: note: candidate: virtual bool SFAsset::CollidesWith(std::shared_ptr<SFAsset>)
+   virtual bool                      CollidesWith(shared_ptr<SFAsset>);
+                                     ^
+..\SFAsset.h:45:37: note:   no known conversion for argument 1 from 'std::__cxx11::list<std::shared_ptr<SFAsset> >' to 'std::shared_ptr<SFAsset>'
+..\SFApp.cpp:136:13: error: base operand of '->' has non-pointer type 'std::__cxx11::list<std::shared_ptr<SFAsset> >'
+    bigAlien -> HandleCollision();
+             ^
+..\SFApp.cpp: In member function 'void SFApp::OnRender()':
+..\SFApp.cpp:185:11: error: base operand of '->' has non-pointer type 'std::__cxx11::list<std::shared_ptr<SFAsset> >'
+   bigAlien->OnRender();
+           ^
+..\SFApp.cpp:195:22: error: 'bigAliens' was not declared in this scope
+   for(auto bigalien: bigAliens) {
+                      ^
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+21:50:48 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+..\SFApp.cpp: In member function 'void SFApp::OnUpdateWorld()':
+..\SFApp.cpp:126:42: error: no matching function for call to 'SFAsset::CollidesWith(std::__cxx11::list<std::shared_ptr<SFAsset> >&)'
+    if(projectile -> CollidesWith(bigAlien)){
+                                          ^
+In file included from ..\SFApp.h:14:0,
+                 from ..\SFApp.cpp:1:
+..\SFAsset.h:45:37: note: candidate: virtual bool SFAsset::CollidesWith(std::shared_ptr<SFAsset>)
+   virtual bool                      CollidesWith(shared_ptr<SFAsset>);
+                                     ^
+..\SFAsset.h:45:37: note:   no known conversion for argument 1 from 'std::__cxx11::list<std::shared_ptr<SFAsset> >' to 'std::shared_ptr<SFAsset>'
+..\SFApp.cpp:132:13: error: base operand of '->' has non-pointer type 'std::__cxx11::list<std::shared_ptr<SFAsset> >'
+    bigAlien -> HandleCollision();
+             ^
+..\SFApp.cpp: In member function 'void SFApp::OnRender()':
+..\SFApp.cpp:181:11: error: base operand of '->' has non-pointer type 'std::__cxx11::list<std::shared_ptr<SFAsset> >'
+   bigAlien->OnRender();
+           ^
+..\SFApp.cpp:191:22: error: 'bigAliens' was not declared in this scope
+   for(auto bigalien: bigAliens) {
+                      ^
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+21:51:06 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+..\SFApp.cpp: In member function 'void SFApp::OnUpdateWorld()':
+..\SFApp.cpp:126:42: error: no matching function for call to 'SFAsset::CollidesWith(std::__cxx11::list<std::shared_ptr<SFAsset> >&)'
+    if(projectile -> CollidesWith(bigAlien)){
+                                          ^
+In file included from ..\SFApp.h:14:0,
+                 from ..\SFApp.cpp:1:
+..\SFAsset.h:45:37: note: candidate: virtual bool SFAsset::CollidesWith(std::shared_ptr<SFAsset>)
+   virtual bool                      CollidesWith(shared_ptr<SFAsset>);
+                                     ^
+..\SFAsset.h:45:37: note:   no known conversion for argument 1 from 'std::__cxx11::list<std::shared_ptr<SFAsset> >' to 'std::shared_ptr<SFAsset>'
+..\SFApp.cpp:132:13: error: base operand of '->' has non-pointer type 'std::__cxx11::list<std::shared_ptr<SFAsset> >'
+    bigAlien -> HandleCollision();
+             ^
+..\SFApp.cpp: In member function 'void SFApp::OnRender()':
+..\SFApp.cpp:181:11: error: base operand of '->' has non-pointer type 'std::__cxx11::list<std::shared_ptr<SFAsset> >'
+   bigAlien->OnRender();
+           ^
+..\SFApp.cpp:191:22: error: 'bigAliens' was not declared in this scope
+   for(auto bigalien: bigAliens) {
+                      ^
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+21:53:16 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+..\SFApp.cpp: In member function 'void SFApp::OnUpdateWorld()':
+..\SFApp.cpp:126:24: error: 'bigAliens' was not declared in this scope
+    for(auto bigAlien : bigAliens) {
+                        ^
+..\SFApp.cpp:133:13: error: base operand of '->' has non-pointer type 'std::__cxx11::list<std::shared_ptr<SFAsset> >'
+    bigAlien -> HandleCollision();
+             ^
+..\SFApp.cpp:174:21: error: qualified-id in declaration before '(' token
+ void SFApp::OnRender() {
+                     ^
+..\SFApp.cpp:215:1: error: expected '}' at end of input
+ }
+ ^
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+21:53:29 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+..\SFApp.cpp: In member function 'void SFApp::OnUpdateWorld()':
+..\SFApp.cpp:126:24: error: 'bigAliens' was not declared in this scope
+    for(auto bigAlien : bigAliens) {
+                        ^
+..\SFApp.cpp:175:21: error: qualified-id in declaration before '(' token
+ void SFApp::OnRender() {
+                     ^
+..\SFApp.cpp:216:1: error: expected '}' at end of input
+ }
+ ^
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+21:53:55 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+..\SFApp.cpp: In member function 'void SFApp::OnUpdateWorld()':
+..\SFApp.cpp:126:24: error: 'bigAliens' was not declared in this scope
+    for(auto bigAlien : bigAliens) {
+                        ^
+..\SFApp.cpp: In member function 'void SFApp::OnRender()':
+..\SFApp.cpp:184:11: error: base operand of '->' has non-pointer type 'std::__cxx11::list<std::shared_ptr<SFAsset> >'
+   bigAlien->OnRender();
+           ^
+..\SFApp.cpp:194:22: error: 'bigAliens' was not declared in this scope
+   for(auto bigalien: bigAliens) {
+                      ^
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+21:54:51 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+..\SFApp.cpp: In member function 'void SFApp::OnUpdateWorld()':
+..\SFApp.cpp:126:24: error: 'bigAliens' was not declared in this scope
+    for(auto bigAlien : bigAliens) {
+                        ^
+..\SFApp.cpp: In member function 'void SFApp::OnRender()':
+..\SFApp.cpp:184:11: error: base operand of '->' has non-pointer type 'std::__cxx11::list<std::shared_ptr<SFAsset> >'
+   bigAlien->OnRender();
+           ^
+..\SFApp.cpp:194:22: error: 'bigAliens' was not declared in this scope
+   for(auto bigalien: bigAliens) {
+                      ^
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+21:57:48 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+..\SFApp.cpp: In member function 'void SFApp::OnUpdateWorld()':
+..\SFApp.cpp:126:24: error: 'bigAliens' was not declared in this scope
+    for(auto bigAlien : bigAliens) {
+                        ^
+..\SFApp.cpp: In member function 'void SFApp::OnRender()':
+..\SFApp.cpp:193:22: error: 'bigAliens' was not declared in this scope
+   for(auto bigalien: bigAliens) {
+                      ^
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+21:58:10 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+..\SFApp.cpp: In member function 'void SFApp::OnUpdateWorld()':
+..\SFApp.cpp:126:24: error: 'bigAliens' was not declared in this scope
+    for(auto bigAlien : bigAliens) {
+                        ^
+..\SFApp.cpp: In member function 'void SFApp::OnRender()':
+..\SFApp.cpp:193:22: error: 'bigAliens' was not declared in this scope
+   for(auto bigalien: bigAliens) {
+                      ^
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+21:58:21 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+..\SFApp.cpp: In member function 'void SFApp::OnUpdateWorld()':
+..\SFApp.cpp:126:24: error: 'bigAliens' was not declared in this scope
+    for(auto bigAlien : bigAliens) {
+                        ^
+..\SFApp.cpp: In member function 'void SFApp::OnRender()':
+..\SFApp.cpp:193:22: error: 'bigAliens' was not declared in this scope
+   for(auto bigalien: bigAliens) {
+                      ^
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+21:58:37 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o Main.o "..\\Main.cpp" 
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\Main.cpp:7:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
+Info: Nothing to build for StarShipPacMan
+22:02:32 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+..\SFApp.cpp: In member function 'void SFApp::OnUpdateWorld()':
+..\SFApp.cpp:172:41: error: 'tmp3' was not declared in this scope
+   bigAliens = list<shared_ptr<SFAsset>>(tmp3);
+                                         ^
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+22:02:50 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+..\SFApp.cpp: In member function 'void SFApp::OnUpdateWorld()':
+..\SFApp.cpp:172:41: error: 'tmp2' was not declared in this scope
+   bigAliens = list<shared_ptr<SFAsset>>(tmp2);
+                                         ^
+..\SFApp.cpp:181:43: error: 'tmp3' was not declared in this scope
+   projectiles = list<shared_ptr<SFAsset>>(tmp3);
+                                           ^
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+22:03:14 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:79:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
+Info: Nothing to build for StarShipPacMan
+22:08:00 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp:5:7: warning: unused variable 'bigAlienHealth' [-Wunused-variable]
+   int bigAlienHealth;
+       ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
+22:08:16 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp:5:7: warning: unused variable 'bigAlienHealth' [-Wunused-variable]
+   int bigAlienHealth = 3;
+       ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
+22:09:23 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp:5:7: warning: unused variable 'bigAlienHealth' [-Wunused-variable]
+   int bigAlienHealth = 3;
+       ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:76:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:76:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:76:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
+Info: Nothing to build for StarShipPacMan
+22:10:09 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp:5:7: warning: unused variable 'bigAlienHealth' [-Wunused-variable]
+   int bigAlienHealth = 3;
+       ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:76:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:76:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:76:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
+Info: Nothing to build for StarShipPacMan
+23:04:07 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp:5:7: warning: unused variable 'bigAlienHealth' [-Wunused-variable]
+   int bigAlienHealth = 3;
+       ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:76:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:76:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:76:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
+Info: Nothing to build for StarShipPacMan
+23:07:38 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o Main.o "..\\Main.cpp" 
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\Main.cpp:7:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
+23:08:59 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: At global scope:
+..\SFApp.cpp:41:54: error: expected initializer before ')' token
+ void spawningAliens(std::shared_ptr<SFWindow> window)){
+                                                      ^
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+23:09:22 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
+23:10:54 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFAsset.o "..\\SFAsset.cpp" 
+..\SFAsset.cpp: In constructor 'SFAsset::SFAsset(SFASSETTYPE, std::shared_ptr<SFWindow>)':
+..\SFAsset.cpp:8:10: warning: enumeration value 'SFASSET_DEAD' not handled in switch [-Wswitch]
+   switch (type) {
+          ^
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFAsset.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
+Info: Nothing to build for StarShipPacMan
+23:15:51 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o Main.o "..\\Main.cpp" 
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\Main.cpp:7:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFAsset.o "..\\SFAsset.cpp" 
+..\SFAsset.cpp: In constructor 'SFAsset::SFAsset(SFASSETTYPE, std::shared_ptr<SFWindow>)':
+..\SFAsset.cpp:8:10: warning: enumeration value 'SFASSET_DEAD' not handled in switch [-Wswitch]
+   switch (type) {
+          ^
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFAsset.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
+23:16:00 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFApp.o "..\\SFApp.cpp" 
+In file included from ..\SFApp.cpp:1:0:
+..\SFApp.h: In constructor 'SFApp::SFApp(std::shared_ptr<SFWindow>)':
+..\SFApp.h:49:7: warning: 'SFApp::fire' will be initialized after [-Wreorder]
+   int fire;
+       ^
+..\SFApp.h:33:27: warning:   'bool SFApp::is_running' [-Wreorder]
+   bool                    is_running;
+                           ^
+..\SFApp.cpp:3:1: warning:   when initialized here [-Wreorder]
+ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+ ^
+..\SFApp.cpp: In member function 'void SFApp::OnEvent(SFEvent&)':
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_NULL' not handled in switch [-Wswitch]
+   switch (the_event) {
+          ^
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_COLLISION' not handled in switch [-Wswitch]
+..\SFApp.cpp:75:10: warning: enumeration value 'SFEVENT_LAST' not handled in switch [-Wswitch]
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFApp.h:14,
+                 from ..\SFApp.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
+Info: Nothing to build for StarShipPacMan

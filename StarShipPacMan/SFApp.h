@@ -28,6 +28,7 @@ public:
   void    OnRender();
 
   void    FireProjectile();
+  void    FireAlienProjectile();
 private:
   bool                    is_running;
 
@@ -36,13 +37,16 @@ private:
   shared_ptr<SFWindow>       sf_window;
   shared_ptr<SFAsset>        player;
   shared_ptr<SFBoundingBox>  app_box;
-  shared_ptr<SFAsset> blockOne;
-  shared_ptr<SFAsset> blockTwo;
+  shared_ptr<SFAsset> 		 blockOne;
+  shared_ptr<SFAsset>        blockTwo;
+  shared_ptr<SFAsset> 		 FriendlySpaceship;
 
-  list<shared_ptr<SFAsset> > FriendlySpaceships;
+  list<shared_ptr<SFAsset> > bigAliens;
   list<shared_ptr<SFAsset> > projectiles;
+  list<shared_ptr<SFAsset> > alienProjectiles;
   list<shared_ptr<SFAsset> > aliens;
 
   int fire;
+  int bigAlienHealth = 0;
 };
 #endif
