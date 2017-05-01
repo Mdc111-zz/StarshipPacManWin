@@ -43,5 +43,6 @@ private:
   list<shared_ptr<SFAsset> > blocks;
 
   int fire;
+  int frames;
 };
 #endif

@@ -15,6 +15,7 @@ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_w
   auto blocks = make_shared<SFAsset>(SFASSET_BLOCK, sf_window);
   auto block_pos = Point2((canvas_w/2) - 35, (canvas_h- 20));
   blocks -> SetPosition(block_pos);
+  blocks.push_back(block);
 
   auto player_pos = Point2(canvas_w/2, 22);
   player->SetPosition(player_pos);

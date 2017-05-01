@@ -24,9 +24,6 @@ SFAsset::SFAsset(SFASSETTYPE type, std::shared_ptr<SFWindow> window): type(type)
   case SFASSET_BACKGROUND:
       sprite = IMG_LoadTexture(sf_window->getRenderer(), "assets/space.png");
       break;
-  case SFASSET_BLOCK:
-      sprite = IMG_LoadTexture(sf_window->getRenderer(), "assets/block.png");
-      break;
   }
 
   if(!sprite) {
@@ -147,16 +144,6 @@ void SFAsset::GoSouth() {
 	 }
 }
 
-void SFAsset::AlienGoSouth() {
-	 Vector2 c = *(bbox->centre);
-
-	 if(!(c.getY() <= 20)) {
-		Vector2 c = *(bbox->centre) + Vector2(0.0f, -0.05f);
-		bbox->centre.reset();
-		bbox->centre = make_shared<Vector2>(c);
-	 }
-}
-
 bool SFAsset::CollidesWith(shared_ptr<SFAsset> other) {
   return bbox->CollidesWith(other->bbox);
 }
@@ -174,7 +161,7 @@ bool SFAsset::IsAlive() {
 }
 
 void SFAsset::HandleCollision() {
-  if(SFASSET_PROJECTILE == type || SFASSET_ALIEN == type || SFASSET_BIGALIEN == type || SFASSET_PLAYER == type) {
+  if(SFASSET_PROJECTILE == type || SFASSET_ALIEN == type || SFASSET_BIGALIEN == type) {
     SetNotAlive();
   }
 }

@@ -40,8 +40,8 @@ private:
   list<shared_ptr<SFAsset> > FriendlySpaceships;
   list<shared_ptr<SFAsset> > projectiles;
   list<shared_ptr<SFAsset> > aliens;
-  list<shared_ptr<SFAsset> > blocks;
 
   int fire;
+  //int frames;
 };
 #endif
