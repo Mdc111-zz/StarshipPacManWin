@@ -56,7 +56,7 @@ SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_w
   const int number_of_bigAliens = 3;
   for(int i=0; i<number_of_bigAliens; i++) {
     auto bigAlien = make_shared<SFAsset>(SFASSET_BIGALIEN, sf_window);
-    auto bigAlienpos   = Point2((canvas_w/2 - 50) + (50 * i), (canvas_h - 75));
+    auto bigAlienpos   = Point2((canvas_w/2 - 50) + (50 * i), (canvas_h- 100));
     bigAlien -> SetPosition(bigAlienpos);
     bigAliens.push_back(bigAlien);
   }
@@ -114,16 +114,13 @@ void SFApp::OnUpdateWorld() {
   for(auto projectile: projectiles) {
 	  projectile->GoNorthProjectile();
   }
-  for(auto bigalien : bigAliens){
-	  for(auto alienprojectile: alienProjectiles) {
-		  SFApp::FireAlienProjectile();
-		  alienprojectile->AlienGoSouth();
+  for(auto alienprojectile: alienProjectiles) {
+	  SFApp::FireAlienProjectile();
+	  alienprojectile->AlienGoSouth();
 
-		  if(alienprojectile -> CollidesWith(player)){
-			  player -> HandleCollision();
-		  }
+	  if(alienprojectile -> CollidesWith(player)){
+		  player -> HandleCollision();
 	  }
-
   }
 
   if(FriendlySpaceship->CollidesWith(player)){
@@ -174,7 +171,7 @@ void SFApp::OnUpdateWorld() {
   list<shared_ptr<SFAsset>> tmp2;
   for(auto bigAlien : bigAliens) {
       if(bigAlien->IsAlive()) {
-        tmp2.push_back(bigAlien);
+        tmp.push_back(bigAlien);
       }
     }
   bigAliens.clear();
@@ -183,7 +180,7 @@ void SFApp::OnUpdateWorld() {
   list<shared_ptr<SFAsset>> tmp3;
   for(auto p : projectiles) {
     if(p->IsAlive()) {
-    	tmp3.push_back(p);
+    	tmp2.push_back(p);
     }
   }
   projectiles.clear();
