@@ -112,8 +112,6 @@ void SFApp::OnExecute() {
 
 void SFApp::OnUpdateWorld() {
 
-	//SFApp::FireAlienProjectile();
-
   for(auto projectile: projectiles) {
 	  projectile->GoNorthProjectile();
   }
@@ -124,7 +122,6 @@ void SFApp::OnUpdateWorld() {
 
 		  if(alienprojectile -> CollidesWith(player)){
 			  player -> HandleCollision();
-			  cout << "You've been Destroyed by an alien ship's projectile" + score << endl;
 		  }
 	  }
   }
@@ -136,7 +133,7 @@ void SFApp::OnUpdateWorld() {
 			  if(bigAlienHealth == 3){
 				  bigAlien -> HandleCollision();
 		    	  score++;
-		    	  cout << "You've Destroyed an alien ship" + score << endl;
+		    	  cout << "You've Destroyed an alien ship" + score;
 			  }
 		  }
 	  }
@@ -145,7 +142,7 @@ void SFApp::OnUpdateWorld() {
 	  if(bigAlien -> CollidesWith(player)){
 		  bigAlien ->HandleCollision();
 		  player ->HandleCollision();
-		  cout << "You have collided with an enemy and blown up - GAME OVER!" << endl;
+		  cout << "You have collided with an enemy and blown up - GAME OVER!";
 	  }
   }
 
@@ -165,8 +162,7 @@ void SFApp::OnUpdateWorld() {
 	  if(player -> CollidesWith(alien)){
 		  player -> HandleCollision();
 		  alien -> HandleCollision();
-		  cout << "You have collided with an enemy and blown up - GAME OVER!" << endl;
-		  ~SFApp();
+		  cout << "You have collided with an enemy and blown up - GAME OVER!";
 	}
   }
   // Update enemy positions
@@ -181,7 +177,7 @@ void SFApp::OnUpdateWorld() {
     	  projectile -> HandleCollision();
     	  alien -> HandleCollision();
     	  score++;
-    	  cout << "You've Destroyed an alien ship" + score << endl;
+    	  cout << "You've Destroyed an alien ship" + score;
       }
     }
   }

@@ -166,7 +166,6 @@ void SFApp::OnUpdateWorld() {
 		  player -> HandleCollision();
 		  alien -> HandleCollision();
 		  cout << "You have collided with an enemy and blown up - GAME OVER!" << endl;
-		  ~SFApp();
 	}
   }
   // Update enemy positions

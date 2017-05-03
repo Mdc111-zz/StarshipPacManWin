@@ -112,8 +112,6 @@ void SFApp::OnExecute() {
 
 void SFApp::OnUpdateWorld() {
 
-	//SFApp::FireAlienProjectile();
-
   for(auto projectile: projectiles) {
 	  projectile->GoNorthProjectile();
   }
@@ -166,7 +164,6 @@ void SFApp::OnUpdateWorld() {
 		  player -> HandleCollision();
 		  alien -> HandleCollision();
 		  cout << "You have collided with an enemy and blown up - GAME OVER!" << endl;
-		  ~SFApp();
 	}
   }
   // Update enemy positions
