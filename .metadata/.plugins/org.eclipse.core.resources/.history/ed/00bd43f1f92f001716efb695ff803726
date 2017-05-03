@@ -136,8 +136,7 @@ void SFApp::OnUpdateWorld() {
 	  player ->HandleCollision();
 	  blockOne ->HandleCollision();
   }else if(player -> CollidesWith(blockTwo)){
-	  player ->HandleCollision();
-	  blockTwo ->HandleCollision();
+
   }
   if(FriendlySpaceship->CollidesWith(player)){
 		cout << "You've Won!";
