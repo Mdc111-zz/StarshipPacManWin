@@ -12906,3 +12906,21 @@ In file included from ..\SFBoundingBox.h:10:0,
                       ^
 g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
 Info: Nothing to build for StarShipPacMan
+15:53:40 **** Incremental Build of configuration Release for project StarShipPacMan ****
+Info: Internal Builder is used for build
+g++ -O3 -Wall -c -fmessage-length=0 -std=c++11 -o SFAsset.o "..\\SFAsset.cpp" 
+..\SFAsset.cpp: In constructor 'SFAsset::SFAsset(SFASSETTYPE, std::shared_ptr<SFWindow>)':
+..\SFAsset.cpp:8:10: warning: enumeration value 'SFASSET_DEAD' not handled in switch [-Wswitch]
+   switch (type) {
+          ^
+In file included from ..\SFBoundingBox.h:10:0,
+                 from ..\SFAsset.h:16,
+                 from ..\SFAsset.cpp:1:
+..\SFMath.h: At global scope:
+..\SFMath.h:86:22: warning: 'const Vector2 xAxis()' defined but not used [-Wunused-function]
+ static const Vector2 xAxis() {
+                      ^
+..\SFMath.h:90:22: warning: 'const Vector2 yAxis()' defined but not used [-Wunused-function]
+ static const Vector2 yAxis() {
+                      ^
+g++ "-LC:\\Users\\Matt_\\Desktop\\Pacman_Files\\Eclipse_projects\\StarShipPacMan\\SDL2" -static-libgcc -static-libstdc++ -o StarShipPacMan.exe Main.o SFApp.o SFAsset.o SFBoundingBox.o SFEvent.o SFWindow.o -lSDL2 -lmingw32 -lSDL2main -lSDL2_image 
