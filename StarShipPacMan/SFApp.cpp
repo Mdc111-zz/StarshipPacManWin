@@ -3,6 +3,7 @@
 SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
   int canvas_w, canvas_h;
   SDL_GetRendererOutputSize(sf_window->getRenderer(), &canvas_w, &canvas_h);
+  int i = 0;
 
 
   background = make_shared<SFAsset>(SFASSET_BACKGROUND, sf_window);
@@ -109,25 +110,34 @@ void SFApp::OnExecute() {
     OnEvent(sfevent);
   }
 }
+int SFApp::Counter(){
+	i++;
+	if (i == 1035){
+		i=0;
+	}
+}
 
 void SFApp::OnUpdateWorld() {
-
-	//SFApp::FireAlienProjectile();
 
   for(auto projectile: projectiles) {
 	  projectile->GoNorthProjectile();
   }
-  for(auto bigalien : bigAliens){
-	  for(auto alienprojectile: alienProjectiles) {
-		  SFApp::FireAlienProjectile();
-		  alienprojectile->AlienGoSouth();
-
-		  if(alienprojectile -> CollidesWith(player)){
-			  player -> HandleCollision();
-			  cout << "You've been Destroyed by an alien ship's projectile" + score << endl;
-		  }
+  for(auto bigAlien : bigAliens) {
+	  SFApp::Counter();
+	  if ((i >= 422 && i < 425) || (i >= 922 && i < 925)){
+		  FireAlienProjectile();
 	  }
   }
+  for(auto alienprojectile: alienProjectiles) {
+
+	  alienprojectile->AlienProjectileGoSouth();
+
+	  if(alienprojectile -> CollidesWith(player)){
+		  player -> HandleCollision();
+		  cout << "You've been Destroyed by an alien ship's projectile" + score << endl;
+	  }
+  }
+
   for(auto projectile: projectiles){
 	  for(auto bigAlien : bigAliens) {
 		  if(projectile -> CollidesWith(bigAlien)){
@@ -137,6 +147,7 @@ void SFApp::OnUpdateWorld() {
 				  bigAlien -> HandleCollision();
 		    	  score++;
 		    	  cout << "You've Destroyed an alien ship" + score << endl;
+		    	  bigAlienHealth = 0;
 			  }
 		  }
 	  }
@@ -149,13 +160,10 @@ void SFApp::OnUpdateWorld() {
 	  }
   }
 
-
   if(player -> CollidesWith(blockOne)){
 	  player ->HandleCollision();
-	  blockOne ->HandleCollision();
   }else if(player -> CollidesWith(blockTwo)){
 	  player ->HandleCollision();
-	  blockTwo ->HandleCollision();
   }
   if(FriendlySpaceship->CollidesWith(player)){
 		cout << "You've Won!";
@@ -166,7 +174,6 @@ void SFApp::OnUpdateWorld() {
 		  player -> HandleCollision();
 		  alien -> HandleCollision();
 		  cout << "You have collided with an enemy and blown up - GAME OVER!" << endl;
-		  ~SFApp();
 	}
   }
   // Update enemy positions
@@ -228,10 +235,9 @@ void SFApp::OnRender() {
     if(projectile->IsAlive()) {projectile->OnRender();}
   }
 
-  if(player->IsAlive())
- {player->OnRender();}
+  if(player->IsAlive()){player->OnRender();}
 
-  for(auto alienProjectile: projectiles) {
+  for(auto alienProjectile: alienProjectiles) {
      if(alienProjectile->IsAlive()) {alienProjectile->OnRender();}
    }
 
@@ -255,10 +261,9 @@ void SFApp::FireProjectile() {
 }
 void SFApp::FireAlienProjectile() {
 	for(auto bigalien: bigAliens) {
-		  auto pb = make_shared<SFAsset>(SFASSET_ALIENPROJECTILE, sf_window);
-		  auto v  = bigalien->GetPosition();
-		  pb->SetPosition(v);
-		  projectiles.push_back(pb);
+		  auto Alien = make_shared<SFAsset>(SFASSET_ALIENPROJECTILE, sf_window);
+		  auto bigAlienPos  = bigalien->GetPosition();
+		  Alien->SetPosition(bigAlienPos);
+		  alienProjectiles.push_back(Alien);
 	}
-
 }

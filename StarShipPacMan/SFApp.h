@@ -26,7 +26,7 @@ public:
   void     OnExecute();
   void    OnUpdateWorld();
   void    OnRender();
-
+  int    Counter();
   void    FireProjectile();
   void    FireAlienProjectile();
 private:
@@ -48,5 +48,8 @@ private:
 
   int fire;
   int bigAlienHealth = 0;
+  int score = 0;
+  int projectileDelay = 0;
+  int i = 0;
 };
 #endif

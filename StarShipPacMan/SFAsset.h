@@ -39,6 +39,7 @@ public:
   virtual void      GoNorthProjectile();
   virtual void      GoSouth();
   virtual void      AlienGoSouth();
+  virtual void      AlienProjectileGoSouth();
   virtual void      SetNotAlive();
   virtual bool      IsAlive();
   virtual void      HandleCollision();

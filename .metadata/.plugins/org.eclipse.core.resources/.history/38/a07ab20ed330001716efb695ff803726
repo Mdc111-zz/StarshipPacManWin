@@ -1,0 +1,267 @@
+#include "SFApp.h"
+
+SFApp::SFApp(std::shared_ptr<SFWindow> window) : fire(0), is_running(true), sf_window(window) {
+  int canvas_w, canvas_h;
+  SDL_GetRendererOutputSize(sf_window->getRenderer(), &canvas_w, &canvas_h);
+
+
+  background = make_shared<SFAsset>(SFASSET_BACKGROUND, sf_window);
+  auto background_pos = Point2(canvas_w/2, canvas_h/2);
+  background -> SetPosition(background_pos);
+
+  app_box = make_shared<SFBoundingBox>(Vector2(canvas_w, canvas_h), canvas_w, canvas_h);
+  player  = make_shared<SFAsset>(SFASSET_PLAYER, sf_window);
+
+  blockOne = make_shared<SFAsset>(SFASSET_BLOCK, sf_window);
+  auto blockOne_pos = Point2((canvas_w/2) - 35, (canvas_h- 20));
+  blockOne -> SetPosition(blockOne_pos);
+
+  blockTwo = make_shared<SFAsset>(SFASSET_BLOCK, sf_window);
+  auto blockTwo_pos = Point2((canvas_w/2) + 35, (canvas_h- 20));
+  blockTwo -> SetPosition(blockTwo_pos);
+
+  auto player_pos = Point2(canvas_w/2, 22);
+  player->SetPosition(player_pos);
+
+  const int number_of_aliens = 7;
+  for(int i=0; i<number_of_aliens; i++) {
+    auto alien = make_shared<SFAsset>(SFASSET_ALIEN, sf_window);
+    auto Alienpos   = Point2((290 + (50 * i)), (50.0f * i)+200);
+    alien->SetPosition(Alienpos);
+    aliens.push_back(alien);
+  }
+  for(int i=0; i<number_of_aliens; i++) {
+    auto alien = make_shared<SFAsset>(SFASSET_ALIEN, sf_window);
+    auto Alienpos   = Point2((340 - (50 * i)), (50.0f * i)+200);
+    alien->SetPosition(Alienpos);
+    aliens.push_back(alien);
+  }
+  for(int i=0; i<number_of_aliens; i++) {
+    auto alien = make_shared<SFAsset>(SFASSET_ALIEN, sf_window);
+    auto Alienpos   = Point2((290 + (50 * i)), (50.0f * i)+400);
+    alien->SetPosition(Alienpos);
+    aliens.push_back(alien);
+  }
+  for(int i=0; i<number_of_aliens; i++) {
+    auto alien = make_shared<SFAsset>(SFASSET_ALIEN, sf_window);
+    auto Alienpos   = Point2((340 - (50 * i)), (50.0f * i)+400);
+    alien->SetPosition(Alienpos);
+    aliens.push_back(alien);
+  }
+
+  FriendlySpaceship = make_shared<SFAsset>(SFASSET_FRIENDLYSPACESHIP, sf_window);
+  auto FSS_pos  = Point2((canvas_w/2), (canvas_h- 20));
+  FriendlySpaceship->SetPosition(FSS_pos);
+
+  const int number_of_bigAliens = 3;
+  for(int i=0; i<number_of_bigAliens; i++) {
+    auto bigAlien = make_shared<SFAsset>(SFASSET_BIGALIEN, sf_window);
+    auto bigAlienpos   = Point2((canvas_w/2 - 50) + (50 * i), (canvas_h - 75));
+    bigAlien -> SetPosition(bigAlienpos);
+    bigAliens.push_back(bigAlien);
+  }
+}
+
+SFApp::~SFApp() {
+}
+
+/**
+ * Handle all events that come from SDL.
+ * These are timer or keyboard events.
+ */
+void SFApp::OnEvent(SFEvent& event) {
+  SFEVENT the_event = event.GetCode();
+
+  switch (the_event) {
+  case SFEVENT_QUIT:
+    is_running = false;
+    break;
+  case SFEVENT_UPDATE:
+    OnUpdateWorld();
+    OnRender();
+    break;
+  case SFEVENT_PLAYER_LEFT:
+    player->GoWest();
+    break;
+  case SFEVENT_PLAYER_RIGHT:
+    player->GoEast();
+    break;
+  case SFEVENT_PLAYER_DOWN:
+	  player->GoSouth();
+	  break;
+  case SFEVENT_PLAYER_UP:
+	  player->GoNorth();
+	  break;
+  case SFEVENT_FIRE:
+    fire ++;
+    FireProjectile();
+    break;
+  }
+}
+
+void SFApp::OnExecute() {
+  // Execute the app
+  SDL_Event event;
+  while (SDL_WaitEvent(&event) && is_running) {
+    // wrap an SDL_Event with our SFEvent
+    SFEvent sfevent((const SDL_Event) event);
+    // handle our SFEvent
+    OnEvent(sfevent);
+  }
+}
+
+void SFApp::OnUpdateWorld() {
+
+  for(auto projectile: projectiles) {
+	  projectile->GoNorthProjectile();
+  }
+  for(auto bigAlien : bigAliens) {
+	  if (projectileDelay % 5 == 0){
+		  FireAlienProjectile();
+	  }else{
+		  projectileDelay++
+	  }
+  }
+  for(auto alienprojectile: alienProjectiles) {
+	  /*if (projectileDelay % 5 == 0){
+		  FireAlienProjectile();
+	  }else{
+		  projectileDelay++;
+	  }
+	  if(alienprojectile -> CollidesWith(player)){
+		  player -> HandleCollision();
+		  cout << "You've been Destroyed by an alien ship's projectile" + score << endl;
+	  }*/
+	  alienprojectile->AlienGoSouth();
+  }
+
+
+  for(auto projectile: projectiles){
+	  for(auto bigAlien : bigAliens) {
+		  if(projectile -> CollidesWith(bigAlien)){
+			  projectile -> HandleCollision();
+			  bigAlienHealth++;
+			  if(bigAlienHealth == 3){
+				  bigAlien -> HandleCollision();
+		    	  score++;
+		    	  cout << "You've Destroyed an alien ship" + score << endl;
+		    	  bigAlienHealth = 0;
+			  }
+		  }
+	  }
+  }
+  for (auto bigAlien : bigAliens){
+	  if(bigAlien -> CollidesWith(player)){
+		  bigAlien ->HandleCollision();
+		  player ->HandleCollision();
+		  cout << "You have collided with an enemy and blown up - GAME OVER!" << endl;
+	  }
+  }
+
+  if(player -> CollidesWith(blockOne)){
+	  player ->HandleCollision();
+  }else if(player -> CollidesWith(blockTwo)){
+	  player ->HandleCollision();
+  }
+  if(FriendlySpaceship->CollidesWith(player)){
+		cout << "You've Won!";
+  }
+
+  for(auto alien : aliens) {
+	  if(player -> CollidesWith(alien)){
+		  player -> HandleCollision();
+		  alien -> HandleCollision();
+		  cout << "You have collided with an enemy and blown up - GAME OVER!" << endl;
+	}
+  }
+  // Update enemy positions
+  for(auto alien : aliens) {
+		  alien -> AlienGoSouth();
+  }
+
+  // Detect collisions
+  for(auto projectile : projectiles) {
+    for(auto alien : aliens) {
+      if(projectile -> CollidesWith(alien)) {
+    	  projectile -> HandleCollision();
+    	  alien -> HandleCollision();
+    	  score++;
+    	  cout << "You've Destroyed an alien ship" + score << endl;
+      }
+    }
+  }
+
+  // remove dead aliens (the long way)
+  list<shared_ptr<SFAsset>> tmp;
+  for(auto a : aliens) {
+    if(a->IsAlive()) {
+      tmp.push_back(a);
+    }
+  }
+  aliens.clear();
+  aliens = list<shared_ptr<SFAsset>>(tmp);
+
+
+  list<shared_ptr<SFAsset>> tmp2;
+  for(auto bigAlien : bigAliens) {
+      if(bigAlien->IsAlive()) {
+        tmp2.push_back(bigAlien);
+      }
+    }
+  bigAliens.clear();
+  bigAliens = list<shared_ptr<SFAsset>>(tmp2);
+
+  list<shared_ptr<SFAsset>> tmp3;
+  for(auto p : projectiles) {
+    if(p->IsAlive()) {
+    	tmp3.push_back(p);
+    }
+  }
+  projectiles.clear();
+  projectiles = list<shared_ptr<SFAsset>>(tmp3);
+}
+
+void SFApp::OnRender() {
+  SDL_RenderClear(sf_window->getRenderer());
+  background ->OnRender();
+
+  blockOne ->OnRender();
+  blockTwo ->OnRender();
+  FriendlySpaceship->OnRender();
+
+  for(auto projectile: projectiles) {
+    if(projectile->IsAlive()) {projectile->OnRender();}
+  }
+
+  if(player->IsAlive()){player->OnRender();}
+
+  for(auto alienProjectile: alienProjectiles) {
+     if(alienProjectile->IsAlive()) {alienProjectile->OnRender();}
+   }
+
+  for(auto bigalien: bigAliens) {
+    if(bigalien->IsAlive()) {bigalien->OnRender();}
+  }
+
+  for(auto alien: aliens) {
+      if(alien->IsAlive()) {alien->OnRender();}
+    }
+
+  // Switch the off-screen buffer to be on-screen
+  SDL_RenderPresent(sf_window->getRenderer());
+}
+
+void SFApp::FireProjectile() {
+  auto pb = make_shared<SFAsset>(SFASSET_PROJECTILE, sf_window);
+  auto v  = player->GetPosition();
+  pb->SetPosition(v);
+  projectiles.push_back(pb);
+}
+void SFApp::FireAlienProjectile() {
+	for(auto bigalien: bigAliens) {
+		  auto Alien = make_shared<SFAsset>(SFASSET_ALIENPROJECTILE, sf_window);
+		  auto bigAlienPos  = bigalien->GetPosition();
+		  Alien->SetPosition(bigAlienPos);
+		  alienProjectiles.push_back(Alien);
+	}
+}
