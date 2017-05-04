@@ -169,10 +169,13 @@ void SFAsset::AlienGoSouth() {
 	 }
 }
 void SFAsset::AlienProjectileGoSouth() {
-	Vector2 c = *(bbox->centre) + Vector2(0.0f, -3);
-	bbox->centre.reset();
-	bbox->centre = make_shared<Vector2>(c);
+	 Vector2 c = *(bbox->centre);
 
+	 if(!(c.getY() <= 20)) {
+		Vector2 c = *(bbox->centre) + Vector2(0.0f, -3);
+		bbox->centre.reset();
+		bbox->centre = make_shared<Vector2>(c);
+	 }
 }
 
 bool SFAsset::CollidesWith(shared_ptr<SFAsset> other) {
